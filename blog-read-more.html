@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawMate - порятунок безпритульних тварин</title>
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Irish+Grover&family=Cormorant+Infant:wght@600&family=Jost:wght@400;500;700&display=swap');
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #e5e5e5;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        h1, .article-container {
+            font-family: 'Cormorant Infant', serif;
+        }
+        
+        .article-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-paragraph, 
+.article-list li, 
+.article-list li p,
+.list-item-title {
+    font-family: 'Jost', sans-serif;
+}
+        
+        .article-title {
+            padding: 30px 30px 0 30px;
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+        
+        .article-title .paw-icon {
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        .article-section {
+            display: flex;
+            padding: 20px 30px;
+        }
+        
+        .article-text {
+            flex: 1;
+            padding-right: 20px;
+        }
+        
+        .article-image {
+            flex: 1;
+        }
+        
+        .article-image img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .article-paragraph {
+            margin-bottom: 15px;
+            color: #000000;
+        }
+        
+        .article-list {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .article-list li {
+            margin-bottom: 10px;
+        }
+        
+        .article-list li p {
+            margin-top: 5px;
+            color: #000000;
+        }
+        
+        .list-item-title {
+            font-weight: bold;
+        }
+        
+        .section-reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .section-reverse .article-text {
+            padding-right: 0;
+            padding-left: 20px;
+        }
+        
+        .footer {
+        display: flex;
+        justify-content: space-between; /* Розподіляє елементи по краях */
+        padding: 15px 30px;
+        background-color: #f0f0f0;
+        border-top: 1px solid #ddd;
+    }
+        
+    .back-button {
+        color: #000000;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+    
+    .back-button:hover {
+        color: #3c2e2e;
+    }
+    
+    .brand {
+        text-align: right; /* Вирівнювання тексту справа */
+    }
+    
+    .logo {
+        font-family: 'Irish Grover', cursive;
+        font-size: 34px;
+        color: #000000;
+    }
+    
+    .tagline {
+        font-size: 14px;
+        color: #000000;
+        font-family: 'Jost', sans-serif;
+    }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .article-section {
+                flex-direction: column;
+            }
+            
+            .article-text, .section-reverse .article-text {
+                padding-right: 0;
+                padding-left: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-container">
+        <h1 class="article-title">
+            10 порад для волонтерів, які хочуть<br>допомогти притулку для тварин
+            <span class="paw-icon">
+                <img src="images/paw.png" alt="Лапка" style="width: 70px; height: auto; transform: rotate(-25deg); vertical-align: middle;">
+            </span>
+        </h1>
+        
+        <!-- Перша секція: текст зліва, фото справа -->
+        <div class="article-section">
+            <div class="article-text">
+                <p class="article-paragraph">
+                    Волонтерство в притулку для тварин — це не лише шлях допомоги тваринам, але й можливість змінити життя цих створінь на краще. Якщо ви хочете стати волонтером і не знаєте, з чого почати, ось кілька порад, які допоможуть вам бути ефективним і впливовим у своїй роботі.
+                </p>
+                
+                <ol class="article-list">
+                    <li>
+                        <span class="list-item-title">Знайдіть притулок, що вам підходить</span>
+                        <p>Перед тим, як стати волонтером, дізнайтесь більше про притулок, його цінності, умови роботи та потреби. Потрібно переконатися, що ви згодні з його політикою і методами.</p>
+                    </li>
+                    
+                    <li>
+                        <span class="list-item-title">Доглядайте за тваринами</span>
+                        <p>Проводьте час з тваринами, допомагайте їм у догляді: годування, прогулянки, чистка кліток. Це забезпечить комфорт і підвищить якість життя підопічних.</p>
+                    </li>
+                    
+                    <li>
+                        <span class="list-item-title">Підтримуйте тварин, які потребують особливої уваги</span>
+                        <p>Якщо ви працюєте з хворими чи агресивними тваринами, будьте терплячими і обережними. Пам'ятайте, що вони потребують особливого догляду і уваги.</p>
+                    </li>
+                    
+                    <li>
+                        <span class="list-item-title">Допоможіть організувати благодійні заходи</span>
+                        <p>Якщо ви маєте організаторські здібності, допоможіть притулку в проведенні заходів для збору коштів або товарів для тварин.</p>
+                    </li>
+                    
+                    <li>
+                        <span class="list-item-title">Адаптуйте тварин до нових умов</span>
+                        <p>Не забувайте про психологічну підтримку тварин, адже зміна середовища може бути стресовою для них. Беріть на себе частину відповідальності за їх адаптацію.</p>
+                    </li>
+                </ol>
+            </div>
+            
+            <div class="article-image">
+                <!-- Тут вставте своє перше зображення -->
+                <img src="images/blog-rm1.png" alt="Волонтери з собаками в притулку">
+            </div>
+        </div>
+        
+        <!-- Друга секція: фото зліва, текст справа -->
+        <div class="article-section section-reverse">
+            <div class="article-text">
+                <ol class="article-list" start="6">
+                    <li>
+                        <span class="list-item-title">Будьте хорошими посередниками між притулом і усиновлювачами</span>
+                        <p>Коли потенційні усиновлювачі приходять до притулку, волонтер може надати їм інформацію про тварину, її звички та потреби, що допоможе знайти найкраще рішення для кожного.</p>
+                    </li>
+                    
+                    <li>
+                        <span class="list-item-title">Волонтерство вдома</span>
+                        <p>Якщо у вас немає можливості працювати в притулку фізично, ви все одно можете допомогти! Поширюйте інформацію про тварин, організовуйте онлайн-акції, робіть донати.</p>
+                    </li>
+                    
+                    <li>
+                        <span class="list-item-title">Задавайте питання</span>
+                        <p>Завжди будьте відкриті до запитів і не бійтеся задавати питання тим, хто працює в притулку. Це допоможе вам краще зрозуміти потреби і як бути корисним.</p>
+                    </li>
+                    
+                    <li>
+                        <span class="list-item-title">Працюйте в команді</span>
+                        <p>Волонтерство — це робота в команді. Підтримуйте своїх колег, обмінюйтеся досвідом, допомагайте одне одному.</p>
+                    </li>
+                    
+                    <li>
+                        <span class="list-item-title">Не забувайте про себе</span>
+                        <p>Волонтерство може бути емоційно важким. Не забувайте про власну підтримку і відпочинок, щоб не вигоріти і залишатись ефективним волонтером.</p>
+                    </li>
+                </ol>
+                
+                <p class="article-paragraph">
+                    Ставши волонтером в притулку для тварин, ви стаєте частиною великої справи. Ці прості поради допоможуть вам зробити вашу діяльність максимально продуктивною і корисною для тварин.
+                </p>
+            </div>
+            
+            <div class="article-image">
+                <!-- Тут вставте своє друге зображення -->
+                <img src="images/blog-rm2.png" alt="Волонтер з собакою">
+            </div>
+        </div>
+        
+        <div class="footer">
+            <a href="blog.html" class="back-button">← Повернутись назад</a>
+            <div class="brand">
+                <div class="logo">PawMate</div>
+                <div class="tagline">порятунок безпритульних тварин</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const readMoreButtons = document.querySelectorAll('.read-more');
+        
+            readMoreButtons.forEach(button => {
+                // Якщо посилання йде на "#", блокуємо перехід
+                if (button.getAttribute('href') === "#") {
+                    button.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        alert('Ця функція буде доступна незабаром!');
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

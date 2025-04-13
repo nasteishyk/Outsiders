@@ -1,0 +1,331 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Cormorant Garamond';
+  background-color: #f6f0ed;
+}
+
+/* Header */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 10;
+  font-family: 'Cormorant Infant';
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 20px;
+}
+
+.logo h1 {
+  font-family: 'JejuHallasan';
+  font-size: 50px;
+  color: white;
+  text-shadow: 0px 3px 12px rgba(0, 0, 0, 0.6);
+}
+
+.subtitle {
+  color: white;
+  font-size: 18px;
+  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin-top: 10px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #693d26;
+  font-size: 22px;
+  font-weight: 700;
+  padding: 5px 15px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-shadow: 0 3px 8px #3e2a1d;
+}
+
+.nav-links li a:hover {
+  background-color: #b8a89f;
+  border-radius: 30px;
+  transform: scale(1.15);
+  text-shadow: none;
+  color: #4a2f1b;
+}
+
+/* Hero */
+.hero {
+  background: url('../images/sobaka.png') no-repeat center center/cover;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 100px 80px 60px;
+}
+
+.slogan {
+  font-size: 80px;
+  color: #693d26;
+  font-weight: 1000;
+  line-height: 1.2;
+  margin-bottom: 60px;
+  font-family: 'Cormorant Garamond';
+}
+
+.login-btn {
+  padding: 12px 40px;
+  margin: 60px 100px;
+  font-size: 20px;
+  background-color: #693d26;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Cormorant Infant';
+  box-shadow: 0 6px 8px rgba(0,0,0,0.2);
+}
+
+.login-btn:hover {
+  background-color: #655248;
+  transform: scale(1.15);
+}
+
+/* About */
+.about {
+  background-color: #C6BFB9;
+}
+
+.about-title {
+  text-align: center;
+  font-size: 42px;
+  color: #5e3c27;
+  margin-bottom: 40px;
+  padding-top: 40px;
+  text-shadow: 8px 8px 10px rgba(0,0,0,0.4);
+}
+
+.about-text {
+  flex: 1;
+  max-width: 45%;
+  background-color: #684938;
+  opacity: 70%;
+  padding: 20px;
+  border-radius: 16px;
+  color: white;
+  font-size: 21px;
+  line-height: 1.6;
+  margin: 20px 15% 90px 18px;
+}
+
+.about-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  font-family: 'Cormorant Garamond';
+}
+
+.about-images {
+  display: flex;
+  gap: 10px;
+  max-width: 50%;
+  flex: 1;
+  margin: 20px 23px 90px 15%;
+}
+
+.left-column,
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.left-column img,
+.right-column img {
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.left-column img { height: 200px; }
+.right-column img { height: 410px; }
+
+/* Footer */
+footer {
+  background-color: #684938;
+  opacity: 70%;
+  padding: 30px 5%;
+  color: white;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-right {
+  margin: 28px 5%;
+  font-size: 14px;
+}
+
+.footer-logo {
+  font-family: 'Irish Grover', cursive;
+  font-size: 50px;
+  text-shadow: 0px 3px 12px rgba(0, 0, 0, 0.6);
+}
+
+.blur {
+  filter: blur(8px);
+  transition: filter 0.3s ease;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background-color: #684938;
+  margin: 5% auto;
+  border-radius: 25px;
+  width: 400px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal label {
+  font-weight: bold;
+  font-family: 'Jost';
+}
+
+.close {
+  color: #fff;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.login-box {
+  background: transparent;
+}
+
+.login-header {
+  color: #fff;
+  padding: 20px 40px 20px 20px;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+
+.login-header b {
+  font-size: 24px;
+  font-family: 'Irish Grover', cursive;
+}
+
+.login-header span {
+  font-size: 22px;
+  font-family: 'Jost';
+}
+
+form {
+  padding: 25px;
+  background: white;
+  border-radius: 0 0 25px 25px;
+}
+
+label {
+  font-size: 14px;
+  color: #5d4037;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  border: 2px solid #684938;
+  background: #E6DACE;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  border: 2px solid #684938;
+  background: #E6DACE;
+  font-size: 14px;
+  color: #333;
+}
+
+.checkbox-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.btn {
+  background-color: #684938;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #5d4037;
+}
+
+.bottom-link {
+  text-align: center;
+  font-size: 13px;
+  font-family: 'Jost';
+  color: #5d4037;
+  margin-top: 15px;
+}
+
+.bottom-link a {
+  color: #5d4037;
+  text-decoration: none;
+  font-weight: bold;
+}

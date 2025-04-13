@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>PawMate - Знайти дім</title>
+  <link rel="icon" type="image/x-icon" href="images/paw.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&family=Jeju+Hallasan&family=Jost&family=Cormorant+Infant&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Jost', sans-serif;
+      background-color: #c0b2a4;
+      color: #3e2a1d;
+      position: relative;
+    }
+
+    header {
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #c0b2a4;
+      color: white;
+    }
+
+    .logo {
+      font-family: 'Irish Grover', cursive;
+      font-size: 32px;
+      text-shadow: 3px 6px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .logo small {
+      display: block;
+      font-size: 12px;
+      text-shadow: 3px 6px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar {
+      display: flex;
+      gap: 40px;
+    }
+
+    .navbar a {
+      color: #52351d;
+      text-decoration: none;
+      font-size: 19px;
+      font-weight: bold;
+      font-family: 'Cormorant Infant';
+      padding: 6px 12px;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      transform-origin: center;
+      text-shadow: 3px 6px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar a:hover {
+      background-color: #856852;
+      color: #fff;
+      transform: scale(1.1);
+      text-shadow: none;
+    }
+
+    .section-title {
+      position: relative;
+      font-family: 'Kurale';
+      font-size: 45px;
+      font-weight: revert;
+      background-color: #c0b2a4;
+      text-shadow: 0 6px 5px rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin: auto;
+      padding: 0 0 30px;
+    }
+
+    .paw-1 {
+      position: sticky;
+      right: 0px;
+      top: 0px;
+      width: 30px;
+      opacity: 0.85;
+      padding-top: 30px;
+    }
+
+    .paw-2 {
+      position: absolute;
+      left: 140px;
+      top: 275px;
+      bottom: -40px;
+      width: 30px;
+      transform: scaleX(-1);
+    }
+
+    .divider {
+      height: 4px;
+      background-color: #3e2a1d;
+      width: 100%;
+      border-radius: 3px;
+    }
+
+    .form-title {
+      font-family: 'Cormorant Infant';
+      font-size: 30px;
+      text-align: center;
+      padding: 40px 0 0 0;
+      margin: auto;
+      background-color: #9a8a7f;
+      text-shadow: 3px 6px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-section {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px 40px 80px;
+      background-color: #9a8a7f;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .form-wrapper,
+    .photo-upload {
+      flex: 1;
+      min-width: 260px;
+      margin: 20px;
+    }
+
+    .photo-upload {
+      text-align: center;
+      padding: 20px;
+      border-radius: 8px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .upload-area {
+      width: 220px;
+      height: 270px;
+      margin: 0 auto 20px;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      color: #000;
+      font-weight: bold;
+      font-family: 'Cormorant Infant';
+      font-size: 25px;
+      text-shadow: 3px 6px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    label.upload-area {
+      align-content: center;
+    }
+
+    .upload-area input {
+      display: none;
+    }
+
+    .form-wrapper input,
+    .form-wrapper select,
+    .form-wrapper textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 12px;
+      border: 2px solid #704b34;
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+    }
+
+    .form-wrapper label {
+      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+      font-weight: bold;
+    }
+
+    .form-wrapper textarea {
+      resize: none;
+      height: 90px;
+      background-color: white;
+    }
+
+    .submit-btn {
+      background-color: #4a2f1b;
+      color: white;
+      font-family: 'Jost', sans-serif;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .submit-btn:hover {
+      background-color: #775542;
+      transform: scale(1.15);
+    }
+
+    .donate-main {
+      text-align: center;
+      font-family: 'Kurale';
+      font-size: 40px;
+      text-shadow: 3px 6px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .donate-section {
+      background: url('images/dog.png') no-repeat center bottom / cover;
+      padding: 10px 20px 450px;
+      color: white;
+      text-align: center;
+      position: relative;
+      text-shadow: 3px 6px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .donate-section p {
+      font-family: 'Cormorant Infant', serif;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #3e2a1d;
+    }
+
+    .donate-section button {
+      background-color: transparent;
+      border: 2px solid #4a2f1b;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 10px 45px;
+      margin-bottom: 30px;
+      font-family: 'Jost', sans-serif;
+      cursor: pointer;
+      color: #3e2a1d;
+      text-shadow: 3px 6px 10px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .donate-section button:hover {
+      transform: scale(1.1);
+      text-shadow: none;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(8px);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      border-radius: 25px;
+      width: 90%;
+      max-width: 430px;
+      font-family: 'Jost', sans-serif;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .modal-header {
+      background-color: #5c3b27;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+      font-family: 'Irish Grover', cursive;
+    }
+
+    .modal-title-close {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Jost', serif;
+      font-size: 18px;
+      margin-top: 6px;
+    }
+
+    .close-btn {
+      font-size: 26px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+
+    .modal-body {
+      padding: 22px 24px;
+    }
+
+    .modal-body label {
+      display: block;
+      font-weight: bold;
+      margin-top: 16px;
+      color: #5c3b27;
+    }
+
+    .modal-body small {
+      font-size: 11px;
+      color: #5c3b27;
+    }
+
+    .modal-body input,
+    .modal-body textarea {
+      width: 100%;
+      padding: 10px 14px;
+      margin-top: 6px;
+      border: 2px solid #a47a61;
+      border-radius: 18px;
+      background-color: #f0e5db;
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      resize: none;
+      box-sizing: border-box;
+    }
+
+    .modal-body textarea {
+      height: 80px;
+      margin-bottom: 10px;
+    }
+
+    .modal-body button {
+      display: block;
+      margin: 28px auto 0;
+      background-color: #4a2f1b;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .modal-body button:hover {
+      background-color: #3a2414;
+    }
+  </style>
+</head>
+<body>
+
+    <header>
+    <div class="logo">
+        PawMate<small>порятунок безпритульних тварин</small>
+    </div>
+    <nav class="navbar">
+        <a href="index.html">Головна</a>
+        <a href="find-a-friend.html">Знайти друга</a>
+        <a href="become-a-volunteer.html">Стати волонтером</a>
+        <a href="blog.html">Блог</a>
+        <a href="index.html#contacts">Контакти</a>
+    </nav>
+    </header>
+
+    <div class="section-title">
+    <span class="title-text">Знайти дім</span>
+    <img class="paw-1" src="images/paw.png" alt="лапка" width="45">
+    </div>
+
+    <div class="divider"></div>
+
+    <h2 class="form-title">Здати тваринку</h2>
+
+    <section class="form-section">
+    <div class="photo-upload">
+        <img src="images/paw.png" class="paw-2" alt="лапка">
+        <label class="upload-area">Додайте фото<input type="file" id="upload"></label>
+        <button class="submit-btn">Надіслати заявку</button>
+    </div>
+
+    <div class="form-wrapper">
+        <form>
+        <label>Виберіть притулок</label>
+        <select>
+            <option>Обрати варіант ↓</option>
+            <option>Лапка надії</option>
+            <option>Вірний друг</option>
+            <option>Дім шансу</option>
+        </select>
+
+        <label>Вид тваринки</label>
+        <select>
+            <option>Обрати варіант ↓</option>
+            <option>Собака</option>
+            <option>Кіт</option>
+        </select>
+
+        <label>Ім'я</label>
+        <input type="text">
+
+        <label>Вік</label>
+        <input type="text">
+
+        <label>Контактні дані для зв'язку</label>
+        <input type="text">
+        </form>
+    </div>
+
+    <div class="form-wrapper">
+        <form>
+        <label>Опишіть стан здоров'я</label>
+        <textarea></textarea>
+
+        <label>Причина здачі</label>
+        <textarea></textarea>
+        </form>
+    </div>
+
+    
+    </section>
+
+    <div class="divider"></div>
+
+    <div>
+    <h2 class="donate-main">Донати</h2>
+    <div class="divider"></div>
+    <section class="donate-section">
+        <p>Зміни життя тварини – зроби свій внесок!</p>
+        <button onclick="openModal()">Задонатити</button>
+    </section>
+    </div>
+
+    <div id="donateModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+        <div>
+            PawMate<br>
+            <small>порятунок безпритульних тварин</small>
+        </div>
+        <div class="modal-title-close">
+            <span class="donate-title">Задонать</span>
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+        </div>
+        </div>
+        <div class="modal-body">
+        <label>Сума пожертви</label>
+        <input type="text">
+        <label>Карта для оплати</label>
+        <input type="text">
+        <label>Вкажіть призначення платежу</label>
+        <small>*наприклад, назва притулку, на що саме донат (корм, лікування, іграшки)</small>
+        <textarea></textarea>
+        <button>Підтвердити внесок</button>
+        </div>
+    </div>
+    </div>
+
+    <script>
+    function openModal() {
+        document.getElementById("donateModal").style.display = "flex";
+    }
+    function closeModal() {
+        document.getElementById("donateModal").style.display = "none";
+    }
+    window.onclick = function(event) {
+        const modal = document.getElementById("donateModal");
+        if (event.target === modal) {
+        closeModal();
+        }
+    }
+    </script>
+
+</body>
+</html>

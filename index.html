@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PawMate - Головна</title>
+  <link rel="icon" type="image/x-icon" href="images/paw.png">
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Irish+Grover&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300..700;1,300..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="mainContent">
+    <header>
+      <div class="logo">
+        <h1>PawMate</h1>
+        <p class="subtitle">порятунок безпритульних тварин</p>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="find-a-friend.html">Знайти друга</a></li>
+          <li><a href="find-a-home.html">Знайти дім</a></li>
+          <li><a href="become-a-volunteer.html">Стати волонтером</a></li>
+          <li><a href="blog.html">Блог</a></li>
+          <li><a href="#contacts">Контакти</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="content">
+          <p class="slogan">Єднаємо<br>серця і<br>лапки</p>
+        </div>
+        <button class="login-btn" id="openLogin">Увійти</button>
+      </section>
+
+      <section class="about" id="about">
+        <h2 class="about-title">Про нас</h2>
+        <div class="about-wrapper">
+          <div class="about-images">
+            <div class="left-column">
+              <img src="images/about1.png" alt="Тварина 1">
+              <img src="images/about2.png" alt="Тварина 2">
+            </div>
+            <div class="right-column">
+              <img src="images/about3.png" alt="Тварина 3">
+            </div>
+          </div>
+          <div class="about-text">
+            <p>
+              Ми — команда людей, які об’єдналися задля допомоги безпритульним тваринам.
+              Наша місія — знайти для кожного пухнастика люблячий дім і забезпечити їм найкращі умови для життя.
+              На нашій платформі ви можете знайти тварин для усиновлення, долучитись до волонтерської діяльності,
+              задонатити або здати знайдену тварину. Приєднуйтесь до нас, разом ми робимо світ добрішим для наших чотириногих друзів!
+            </p> 
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contacts">
+      <div class="footer-content">
+        <div class="footer-left">
+          <h3 class="footer-logo">PawMate</h3>
+          <p class="footer-subtitle">порятунок безпритульних тварин</p>
+        </div>
+        <div class="footer-right">
+          <p><em>Email:</em> pawmate@gmail.com</p>
+          <p><em>Телефон:</em> +380 988 811 552</p>
+          <p><em>Адреса:</em> вул. Князя Романа, 16, Львів, Україна</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Модальне вікно входу -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div class="login-box">
+        <div class="login-header">
+          <div>
+            <b>PawMate</b>
+            <div class="tagline">порятунок безпритульних тварин</div>
+          </div>
+          <span>Увійти</span>
+        </div>
+        <form>
+          <label for="email">Email або Instagram</label>
+          <input type="text" id="email" name="email" />
+          <label for="password">Пароль</label>
+          <input type="password" id="password" name="password" />
+          <div class="checkbox-container">
+            <input type="checkbox" id="consent" />
+            <label for="consent">Я даю згоду на обробку моїх персональних даних</label>
+          </div>
+          <button type="submit" class="btn">Увійти</button>
+          <div class="bottom-link">
+            Ще не маєте акаунту? <a href="#" onclick="switchToRegister()">Зареєструйтесь</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальне вікно реєстрації -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div class="login-box">
+        <div class="login-header">
+          <div>
+            <b>PawMate</b>
+            <div class="tagline">порятунок безпритульних тварин</div>
+          </div>
+          <span>Реєстрація</span>
+        </div>
+        <form>
+          <label for="fullname">Ім’я та прізвище</label>
+          <input type="text" id="fullname" name="fullname" />
+        
+          <label for="email-register">Email або Instagram</label>
+          <input type="text" id="email-register" name="email-register" />
+        
+          <label for="password-register">Пароль</label>
+          <input type="password" id="password-register" name="password-register" />
+        
+          <label for="role">Тип користувача</label>
+          <select id="role" name="role">  
+            <option value="" disabled selected style="font-family: 'Cormorant Infant'; font-weight: bolder; ">Оберіть варіант ↓</option>
+            <option value="volunteer">Хочу прихистити тварину</option>
+            <option value="animal">Хочу повідомити про тварину</option>
+            <option value="other">Хочу стати волонтером</option>
+          </select>
+        
+          <div class="checkbox-container">
+            <input type="checkbox" id="consent-register" />
+            <label for="consent-register">Я даю згоду на обробку моїх персональних даних</label>
+          </div>
+        
+          <button type="submit" class="btn">Зареєструватись</button>
+          <div class="bottom-link">
+            Вже маєте акаунт? <a href="#" onclick="switchToLogin()">Увійти</a>
+          </div>
+        </form>        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const loginModal = document.getElementById("loginModal");
+    const registerModal = document.getElementById("registerModal");
+    const mainContent = document.getElementById("mainContent");
+
+    document.getElementById("openLogin").onclick = () => {
+      loginModal.style.display = "block";
+      mainContent.classList.add("blur");
+    };
+
+    function closeModal() {
+      loginModal.style.display = "none";
+      registerModal.style.display = "none";
+      mainContent.classList.remove("blur");
+    }
+
+    function switchToRegister() {
+      loginModal.style.display = "none";
+      registerModal.style.display = "block";
+    }
+
+    function switchToLogin() {
+      registerModal.style.display = "none";
+      loginModal.style.display = "block";
+    }
+
+    window.onclick = (event) => {
+      if (event.target === loginModal || event.target === registerModal) {
+        closeModal();
+      }
+    };
+  </script>
+</body>
+</html>

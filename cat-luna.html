@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Луна - Профіль кішки</title>
+  <link rel="icon" type="image/x-icon" href="images/paw.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&family=Cormorant+Infant:wght@600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #dcd8d4;
+      color: #000000;
+      font-family: 'Jost', sans-serif; /* шрифт Jost для всього тексту */
+      padding: 20px;
+    }
+
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #CDC4BF;
+    }
+
+    .top-bar {
+      width: 100%;
+      padding: 15px 20px;
+      background-color: #CDC4BF;
+      border-bottom: none;
+      margin-bottom: -10px
+    }
+
+    .back-button {
+      text-decoration: none;
+      color: #000000;
+      font-size: 16px;
+    }
+
+    .content-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .profile-image {
+      flex: 1;
+      padding: 20px;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .profile-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0;
+      margin-bottom: 10px;
+    }
+
+    .contact-button {
+      display: inline-block;
+      background-color: #CDC4BF;
+      color: #684938;
+      border: 2px solid #684938;
+      border-radius: 12px;
+      padding: 8px 20px;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-button:hover {
+      transform: scale(1.1);
+      text-shadow: none;
+    }
+
+    .profile-details {
+      flex: 1;
+      padding: 15px 20px 20px 0;
+      position: relative;
+      margin-top: -10px;
+    }
+
+    .cat-name {
+      font-family: 'Cormorant Infant', serif; /* шрифт Cormorant Infant для "Луна" */
+      font-size: 32px;
+      color: #684938;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      border-bottom: 3px solid #684938;
+      padding-bottom: 5px;
+      margin-left: 20px; /* зміщуємо правіше */
+    }
+
+    .cat-name img {
+      margin-left: 3px;
+      width: 35px;
+      height: auto;
+      transform: rotate(-25deg);
+      margin-top: 15px;
+    }
+
+    .info-list {
+      list-style-type: none;
+      margin-bottom: 10px;
+    }
+
+    .info-list li {
+      margin-bottom: 4px;
+      display: flex;
+    }
+
+    .section-title {
+      font-weight: normal;
+      margin-top: 12px;
+      margin-bottom: 4px;
+    }
+
+    .health-list, .character-list, .history-list {
+      list-style-type: none;
+      margin-left: 15px;
+    }
+
+    .health-list li, .character-list li, .history-list li {
+      position: relative;
+      padding-left: 15px;
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .health-list li:before,
+    .character-list li:before,
+    .history-list li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #000000;
+    }
+
+    @media (max-width: 768px) {
+      .content-wrapper {
+        flex-direction: column;
+      }
+
+      .profile-image {
+        max-width: 100%;
+      }
+
+      .profile-details {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-container">
+    <div class="top-bar">
+      <a href="find-a-friend.html" class="back-button">← Повернутись назад</a>
+    </div>
+    <div class="content-wrapper">
+      <div class="profile-image">
+        <img src="images/cat-luna.png" alt="Кішка Луна">
+        <button class="contact-button"><strong>Зв'язатись з притулком</strong></button>
+      </div>
+
+      <div class="profile-details">
+        <h1 class="cat-name">
+          Луна
+          <img src="images/paw.png" alt="Лапка">
+        </h1>
+
+        <ul class="info-list">
+          <li><span class="label">Вік:</span> 2 роки</li>
+          <li><span class="label">Стать:</span> Кішка</li>
+          <li><span class="label">Порода:</span> Мікс</li>
+          <li><span class="label">Колір:</span> Рижий з білими</li>
+          <li><span class="label">Розмір:</span> Середній</li>
+        </ul>
+        <div class="section-title">Здоров'я:</div>
+        <ul class="health-list">
+          <li>Повністю здоровий, пройшла всі необхідні щеплення.</li>
+          <li>Немає хронічних захворювань.</li>
+        </ul>
+
+        <div class="section-title">Характер:</div>
+        <ul class="character-list">
+          <li>Луна дуже спокійна, лагідна і любить увагу. Вона мила і ніжна, і часто шукає компанії людей.</li>
+        </ul>
+
+        <div class="section-title">Історія:</div>
+        <ul class="history-list">
+          <li>Її попередні власники не змогли її утримувати, тому Луна була віддана в притулок. Вона дуже швидко адаптувалася до нового середовища.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawMate - Знайти друга</title>
+    <link rel="icon" type="image/x-icon" href="images/paw.png">
+    <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&family=Jeju+Hallasan&family=Jost&family=Cormorant+Infant&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f2ede5;
+            color: #614133;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        header {
+            padding: 30px 20px;
+            border-bottom: 1px dashed #c0b2a4;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-family: 'Irish Grover', cursive;
+            text-align: left;
+            font-weight: bold;
+            color: #614133;
+            margin: 0;
+            text-shadow: 3px 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .tagline {
+            color: #614133;
+            font-size: 14px;
+            margin: 5px 0 0;
+            text-shadow: 3px 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav a {
+            color: #52351d;
+            text-decoration: none;
+            font-size: 19px;
+            font-weight: bold;
+            font-family: 'Cormorant Infant';
+            padding: 6px 12px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            transform-origin: center;
+            text-shadow: 3px 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav a:hover {
+            background-color: #856852;
+            color: #fff;
+            transform: scale(1.1);
+            text-shadow: none;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #614133;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: normal;
+        }
+
+        h1 {
+            font-size: 38px;
+            margin: 20px 0 15px;
+        }
+
+        h2 {
+            font-size: 32px;
+            margin: 25px 0 20px;
+        }
+
+        .filter-section {
+            border-top: 1px dashed #c0b2a4;
+            border-bottom: 1px dashed #c0b2a4;
+            padding: 15px 0;
+            margin-bottom: 20px;
+        }
+
+        .filter-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 0 20px;
+        }
+
+        .filter-label {
+            min-width: 120px;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-option {
+            background-color: #e8e2d9;
+            border: 1px solid #c0b2a4;
+            border-radius: 20px;
+            padding: 3px 12px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .filter-option.health {
+            background-color: #dfd9cf;
+        }
+
+        .filter-option input {
+            margin-right: 5px;
+        }
+
+        .search-btn {
+            display: block;
+            width: 200px;
+            margin: 15px auto;
+            background-color: #7d5b48;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            transform: scale(1.15);
+        }
+
+        .pets-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 0 20px 30px;
+        }
+
+        .pet-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .pet-card a {
+            text-decoration: none;
+            color: #614133;
+        }
+
+        .pet-card a:hover {
+            text-decoration: underline;
+        }
+
+        .pet-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .pet-info {
+            padding: 5px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+        }
+
+        .pet-name {
+            font-weight: normal;
+            font-size: 15px;
+        }
+
+        .pet-age {
+            color: #614133;
+            font-size: 13px;
+            margin-top: 2px;
+        }
+
+        .favorite-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #614133;
+            font-size: 16px;
+        }
+
+        .request-section {
+            border-top: 1px dashed #c0b2a4;
+            padding: 20px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .request-title {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .request-title::after {
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .paw-print {
+            position: absolute;
+            color: #614133;
+            font-size: 20px;
+        }
+
+        .paw-print.top-left {
+            top: 20px;
+            left: 20px;
+        }
+
+        .paw-print.bottom-right {
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .request-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-note {
+            grid-column: 1 / 3;
+            text-align: center;
+            font-size: 13px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .form-group-large {
+            grid-column: 1 / 2;
+            grid-row: 2 / 4;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .form-group textarea, .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            height: 130px;
+            resize: none;
+        }
+
+        .right-column {
+            grid-column: 2 / 3;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding-left: 15px;
+            width: 90%;
+        }
+
+        .submit-btn {
+            background-color: #7d5b48;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 90%;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo-box">
+                    <h1 class="logo">PawMate</h1>
+                    <p class="tagline">притулок безпритульних тварин</p>
+                </div>
+                <nav class="nav">
+                    <a href="index.html">Головна</a>
+                    <a href="find-a-home.html">Знайти дім</a>
+                    <a href="become-a-volunteer.html">Стати волонтером</a>
+                    <a href="blog.html">Блог</a>
+                    <a href="index.html#contacts">Контакти</a>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <h1>Знайти друга</h1>
+            
+            <section class="filter-section">
+                <div class="filter-row">
+                    <span class="filter-label">Вид тваринки:</span>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox"> Котик
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" checked> Песик
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="filter-row">
+                    <span class="filter-label">Здоров'я:</span>
+                    <div class="filter-options">
+                        <label class="filter-option health">
+                            <input type="checkbox"> Здорова
+                        </label>
+                        <label class="filter-option health">
+                            <input type="checkbox"> Легке захворювання
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="filter-row">
+                    <span class="filter-label">Вік:</span>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox"> Молодший вік (до 1 р.)
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" checked> Середній вік (1-7 р.)
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Старший вік (від 7 р.)
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="filter-row">
+                    <span class="filter-label">Категорія закладу:</span>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox"> Притулок
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Ветклініка
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Центр реабілітації
+                        </label>
+                    </div>
+                </div>
+                
+                <button class="search-btn">Знайти</button>
+            </section>
+            
+            <h2>Наші тваринки</h2>
+            
+            <div class="pets-grid">
+                <div class="pet-card">
+                    <img src="images/dog-maks.png" alt="Макс" class="pet-img">
+                    <div class="pet-info">
+                        <div>
+                            <div class="pet-name"><a href="#">Макс</a></div>
+                            <div class="pet-age">2 роки</div>
+                        </div>
+                        <div class="favorite-btn">♡</div>
+                    </div>
+                </div>
+                
+                <div class="pet-card">
+                    <img src="images/cat-luna.png" alt="Луна" class="pet-img">
+                    <div class="pet-info">
+                        <div>
+                            <div class="pet-name"><a href="cat-luna.html">Луна</a></div>
+                            <div class="pet-age">1 рік</div>
+                        </div>
+                        <div class="favorite-btn">♡</div>
+                    </div>
+                </div>
+                
+                <div class="pet-card">
+                    <img src="images/dog-lucky.png" alt="Лакі" class="pet-img">
+                    <div class="pet-info">
+                        <div>
+                            <div class="pet-name"><a href="#">Лакі</a></div>
+                            <div class="pet-age">4 місяці</div>
+                        </div>
+                        <div class="favorite-btn">♡</div>
+                    </div>
+                </div>
+                
+                <div class="pet-card">
+                    <img src="images/cat-murka.png" alt="Мурка" class="pet-img">
+                    <div class="pet-info">
+                        <div>
+                            <div class="pet-name"><a href="#">Мурка</a></div>
+                            <div class="pet-age">5 місяців</div>
+                        </div>
+                        <div class="favorite-btn">♡</div>
+                    </div>
+                </div>
+                
+                <div class="pet-card">
+                    <img src="images/dog-reks.png" alt="Рекс" class="pet-img">
+                    <div class="pet-info">
+                        <div>
+                            <div class="pet-name"><a href="#">Рекс</a></div>
+                            <div class="pet-age">3 роки</div>
+                        </div>
+                        <div class="favorite-btn">♡</div>
+                    </div>
+                </div>
+                
+                <div class="pet-card">
+                    <img src="images/cat-snizhka.png" alt="Сніжка" class="pet-img">
+                    <div class="pet-info">
+                        <div>
+                            <div class="pet-name"><a href="#">Сніжка</a></div>
+                            <div class="pet-age">1,5 років</div>
+                        </div>
+                        <div class="favorite-btn">♡</div>
+                    </div>
+                </div>
+            </div>
+            
+            <section class="request-section">
+                
+                <h2 class="request-title">Запит</h2>
+                
+                <form class="request-form">
+                    <p class="form-note">Якщо ви не знайшли потрібної тваринки, залиште запит і ми зв'яжемося<br>з вами, коли знайдемо схожу тваринку у нашій мережі.</p>
+                    
+                    <div class="form-group form-group-large">
+                        <label for="description">Опис потрібної вам тваринки</label>
+                        <textarea id="description"></textarea>
+                    </div>
+                    
+                    <div class="right-column">
+                        <div class="form-group">
+                            <label for="name">ПІБ</label>
+                            <input type="text" id="name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Номер телефону для зв'язку</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Надіслати запит</button>
+                    </div>
+                </form>
+                
+                
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const readMoreButtons = document.querySelectorAll('.pet-name a');
+        
+            readMoreButtons.forEach(button => {
+                // Якщо посилання йде на "#", блокуємо перехід
+                if (button.getAttribute('href') === "#") {
+                    button.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        alert('Ця функція буде доступна незабаром!');
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
